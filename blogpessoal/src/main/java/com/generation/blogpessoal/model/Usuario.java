@@ -29,10 +29,9 @@ public class Usuario {
 	@NotNull
 	@Email(message="Digite um e-mail válido!")
 	@Size(min = 10, max = 100, message="O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
-	private String email_do_usuario;
+	private String usuario;
 	
 	@NotNull
-	@Size(min = 8, max = 30, message="O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
 	private String senha;
 	
 	private String foto;
@@ -57,12 +56,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getEmail_do_usuario() {
-		return email_do_usuario;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail_do_usuario(String email_do_usuario) {
-		this.email_do_usuario = email_do_usuario;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getFoto() {

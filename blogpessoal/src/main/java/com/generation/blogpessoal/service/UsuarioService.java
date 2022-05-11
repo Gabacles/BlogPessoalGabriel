@@ -19,7 +19,7 @@ public class UsuarioService {
 	private UsuarioRepository repository;
 
 	public Optional<Usuario> cadastraUsuario(Usuario usuario) {
-		if (repository.findByUsuario(usuario.getEmail_do_usuario()).isPresent())
+		if (repository.findByUsuario(usuario.getUsuario()).isPresent())
 			return Optional.empty();
 
 		usuario.setSenha(criptografarSenha(usuario.getSenha()));
@@ -28,7 +28,7 @@ public class UsuarioService {
 
 	}
 
-	private String criptografarSenha(String senha) {
+	public String criptografarSenha(String senha) {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -38,7 +38,7 @@ public class UsuarioService {
 
 	public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLogin) {
 
-		Optional<Usuario> usuario = repository.findByUsuario(usuarioLogin.get().getEmail_do_usuario());
+		Optional<Usuario> usuario = repository.findByUsuario(usuarioLogin.get().getUsuario());
 
 		if (usuario.isPresent()) {
 			if (compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
@@ -46,7 +46,7 @@ public class UsuarioService {
 				usuarioLogin.get().setNome(usuario.get().getNome());
 				usuarioLogin.get().setFoto(usuario.get().getFoto());
 				usuarioLogin.get().setToken(
-						gerarBasicToken(usuarioLogin.get().getEmail_do_usuario(), usuarioLogin.get().getSenha()));
+						gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 				usuarioLogin.get().setSenha(usuario.get().getSenha());
 
 				return usuarioLogin;

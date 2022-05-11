@@ -6,7 +6,7 @@ public class UsuarioLogin {
 	
 	private String nome;
 	
-	private String email_do_usuario;
+	private String usuario;
 
 	private String senha;
 	
@@ -30,12 +30,12 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
-	public String getEmail_do_usuario() {
-		return email_do_usuario;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail_do_usuario(String email_do_usuario) {
-		this.email_do_usuario = email_do_usuario;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {

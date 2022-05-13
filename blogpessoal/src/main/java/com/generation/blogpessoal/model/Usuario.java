@@ -16,29 +16,44 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name= "tb_usuario")
+@Table(name = "tb_usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
 	private String nome;
-	
+
 	@NotNull
-	@Email(message="Digite um e-mail válido!")
-	@Size(min = 10, max = 100, message="O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
+	@Email(message = "Digite um e-mail válido!")
+	@Size(min = 10, max = 100, message = "O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
 	private String usuario;
-	
+
 	@NotNull
 	private String senha;
-	
+
 	private String foto;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
+
+	// Metodos construtores para testes
+	//importante seguir a mesma ordem das declarações dos atributos de usuario acima 
+	//construtor cheio
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	// construtor vazio
+	public Usuario() {
+	}
 
 	public Long getId() {
 		return id;

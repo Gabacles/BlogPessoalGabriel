@@ -67,7 +67,7 @@ public class UsuarioController {
 
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Usuario> put(@Valid @RequestBody Usuario usuario) {
 		usuario.setSenha(usuarioService.criptografarSenha(usuario.getSenha()));
 		return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuario));

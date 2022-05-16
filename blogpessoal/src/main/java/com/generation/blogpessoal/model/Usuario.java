@@ -15,6 +15,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
@@ -25,8 +27,9 @@ public class Usuario {
 
 	@NotNull
 	private String nome;
-
-	@NotNull
+	
+	@Schema(example = "email@email.com.br")
+	@NotNull(message = "Campo usuário é obrigatório!")
 	@Email(message = "Digite um e-mail válido!")
 	@Size(min = 10, max = 100, message = "O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
 	private String usuario;

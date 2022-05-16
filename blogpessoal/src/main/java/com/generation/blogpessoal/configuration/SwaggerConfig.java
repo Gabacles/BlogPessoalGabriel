@@ -35,12 +35,12 @@ public class SwaggerConfig {
 					.name("Generation Brasil")
 					.url("https://brazil.generation.org/"))
 				.contact(new Contact()
-					.name("Conteudo Blog Pessoal")
-					.url("https://github.com/Gabacles/BlogPessoalGabriel")
+					.name("Gabriel Câmera")
+					.url("https://www.linkedin.com/in/gabriel-camera-dal-rovere/")
 					.email("g.dalrovere@gmail.com")))
 				.externalDocs(new ExternalDocumentation()
-					.description("Github")
-					.url("https://github.com/Gabacles"));
+					.description("Repositório Github")
+					.url("https://github.com/Gabacles/BlogPessoalGabriel"));
 	}
 
     /**
